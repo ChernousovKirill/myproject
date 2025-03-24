@@ -4,7 +4,8 @@
     <active>true</active>
     <errorConditionFormula>NOT(
   ISPICKVAL(Job_Posting__r.Status__c, &quot;Approved&quot;) ||
-  ISPICKVAL(Job_Posting__r.Status__c, &quot;Published&quot;)
+  ISPICKVAL(Job_Posting__r.Status__c, &quot;Published&quot;) ||
+ISPICKVAL(Job_Posting__r.Status__c, &quot;In Progress&quot;)
 )</errorConditionFormula>
     <errorMessage>You can only apply for a job that is in &apos;Approved&apos; or &apos;Published&apos; status.</errorMessage>
 </ValidationRule>
