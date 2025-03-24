@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Application_If_Job_Not_Approved</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(
+  ISPICKVAL(Job_Posting__r.Status__c, &quot;Approved&quot;) ||
+  ISPICKVAL(Job_Posting__r.Status__c, &quot;Published&quot;)
+)</errorConditionFormula>
+    <errorMessage>You can only apply for a job that is in &apos;Approved&apos; or &apos;Published&apos; status.</errorMessage>
+</ValidationRule>
