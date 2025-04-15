@@ -28,6 +28,14 @@ public with sharing class JobPostingTriggerHandler extends TriggerHandler {
             ) {
                 jobPostingUtils.updateJobPostingStatus(updatedJobPost, ConstantUtility.OFFER_STAGE_STATUS);
             }
+
+            if (updatedJobPost.Offer_Accepted__c != oldMap.get(updatedJobPost.Id).Offer_Accepted__c
+                && updatedJobPost.Status__c ==  ConstantUtility.OFFER_STAGE_STATUS
+                && updatedJobPost.Offer_Accepted__c == updatedJobPost.Open_Positions__c
+            ) {
+                jobPostingUtils.updateJobPostingStatus(updatedJobPost, ConstantUtility.CLOSED_HIRED_STATUS);
+            }
+        
         
         }
     }
